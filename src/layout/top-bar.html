@@ -1,0 +1,88 @@
+<style>
+    
+:root{
+    --top-bar-height:50px;
+    --top-bar-color:rgba(255, 255, 255, 0.85);
+}
+
+.top-bar-space{
+    height: var(--top-bar-height);
+}
+
+.top-bar{
+    display: flex;
+    position: fixed;
+    width: 100%;
+    align-items: center;
+    overflow: hidden;
+    justify-content: space-between;
+    height: var(--top-bar-height);
+    box-shadow: 0 0 1px rgba(0, 0, 0, 0.5);
+    background: var(--top-bar-color);
+    backdrop-filter: blur(24px);
+}
+
+.top-bar div{
+    margin: 0px 12px;
+}
+.top-bar .nav-bar ul{
+    display: flex;
+    list-style: none;
+}
+.top-bar .nav-bar ul li a{
+    text-decoration: none;
+    padding: 8px 12px;
+    color: black;
+}
+
+.top-bar .nav-bar ul li a:hover{
+    outline: 1px solid black;
+}
+
+.menu-btn{
+    position: absolute;
+    right: 12px;
+    border: none;
+    background-color: transparent;
+    padding: 12px;
+    display: none;
+    cursor: pointer;
+    top: 8px;
+}
+
+@media screen and (max-width: 720px) {
+   .top-bar{
+    flex-direction: column;
+    min-height: 50px;
+    height: fit-content;
+   }
+   .nav-bar{
+    height: 0px;
+    transition: all ease 300ms;
+   }
+   .nav-bar ul {
+    flex-direction: column;
+   }
+   .nav-bar ul li{
+    margin: 12px 0px;
+   }
+   .menu-btn{
+    display: flex;
+   }
+
+}
+</style>
+<div class="top-bar desktop-mode">
+    <div class="logo" id="main-logo"></div>
+    <div class="nav-bar" id="top-nav-bar" type="expanded">
+        <ul>
+            <li><a href="#">Example 1</a></li>
+            <li><a href="#">Example 2</a></li>
+        </ul>
+    </div>
+    <button class="menu-btn" id="expand-menu-button">
+        <i class="fas fa-bars"></i>
+    </button>
+  
+</div>
+

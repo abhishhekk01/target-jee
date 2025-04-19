@@ -1,0 +1,7 @@
+{
+    "common":{
+        "top-bar":{
+            "html":"src/layout/top-bar.html"
+        }
+    }
+}
