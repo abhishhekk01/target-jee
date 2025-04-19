@@ -14,6 +14,18 @@ async function setInnerHTMLFromFile(id, htmlFilePath){
     setInnerHTML(id, htmlContent)
 }
 
+async function navSetup() {
+    let navContent = "<ul>";
+    let navigation = await getJSON('navigation.json');
+    
+    navigation['top-nav'].forEach(element => {
+        navContent += '<li><a href="' + element['href'] + '">' + element['name'] + '</a></li>';
+    });
+
+    navContent += "</ul>";
+    setInnerHTML('top-nav-bar', navContent);
+}
+
 
 async function init() {
     let config = await getJSON('config.json')
@@ -25,7 +37,7 @@ async function init() {
 
     // Set values
     setInnerHTML('main-logo', config['meta-data']['logo'])
-
+    await navSetup()
     // top-bar-config
     const button = document.getElementById('expand-menu-button');
 
